@@ -1,10 +1,11 @@
 import { NavLink, useNavigate } from 'react-router-dom'
-import { MessageSquare, Home, LogOut, Mic2, Sun, Moon } from 'lucide-react'
+import { MessageSquare, Home, LogOut, Mic2, Sun, Moon, UserX } from 'lucide-react'
 import { useTheme } from '../hooks/useTheme'
 
 const NAV = [
   { to: '/', label: 'Дашборд', icon: Home, end: true },
   { to: '/dialogs', label: 'Диалоги', icon: MessageSquare },
+  { to: '/refusals', label: 'Отказы', icon: UserX },
 ]
 
 interface Props {

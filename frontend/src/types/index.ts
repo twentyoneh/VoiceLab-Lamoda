@@ -141,6 +141,51 @@ export interface DialogDetail {
   analysis: Analysis | null
 }
 
+export interface RefusalsOverview {
+  refusals_count: number
+  candidate_refused_count: number
+  unsuitable_candidate_count: number
+  analyzed_total: number
+  refusal_rate_pct: number | null
+  avg_base_score: number | null
+  avg_objection_handling: number | null
+  missed_objection_count: number
+  low_kpi_refusals: number
+}
+
+export interface RefusalsByDate {
+  date: string
+  count: number
+  avg_objection_handling: number | null
+  avg_base_score: number | null
+}
+
+export interface RefusalTypeStat {
+  refusal_type: string
+  count: number
+  avg_base_score: number | null
+  avg_objection_handling: number | null
+}
+
+export interface ObjectionBucket {
+  bucket: string
+  count: number
+}
+
+export interface CriteriaCompare {
+  criteria: string
+  refusals_avg: number | null
+  target_avg: number | null
+  max_possible: number
+}
+
+export interface RefusalsFilters {
+  from_date: string
+  to_date: string
+  refusal_type: string
+  kpi_level: string
+}
+
 export interface Filters {
   from_date: string
   to_date: string
@@ -152,6 +197,11 @@ export interface Filters {
 }
 
 // Human-readable labels
+export const REFUSAL_TYPE_LABELS: Record<string, string> = {
+  candidate_refused: 'Кандидат отказался',
+  unsuitable_candidate: 'Неподходящий кандидат',
+}
+
 export const CALL_CLASS_LABELS: Record<string, string> = {
   target_call: 'Целевой звонок',
   unsuitable_candidate: 'Неподходящий кандидат',

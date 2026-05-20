@@ -3,6 +3,8 @@ import type {
   Overview, DateStat, CallClassStat, KpiLevelStat,
   CriteriaStat, ProblemStat, RecommendationStat, ScoreRange,
   DialogsResponse, DialogDetail, FilterOption,
+  RefusalsOverview, RefusalsByDate, RefusalTypeStat,
+  ObjectionBucket, CriteriaCompare,
 } from '../types'
 
 // Auth
@@ -41,6 +43,31 @@ export const getRecommendations = (params: Record<string, string>) =>
 
 export const getScoreDistribution = (params: Record<string, string>) =>
   api.get<ScoreRange[]>('/stats/score-distribution', { params })
+
+// Refusals
+export const getRefusalsOverview = (params: Record<string, string>) =>
+  api.get<RefusalsOverview>('/refusals/overview', { params })
+
+export const getRefusalsByDate = (params: Record<string, string>) =>
+  api.get<RefusalsByDate[]>('/refusals/by-date', { params })
+
+export const getRefusalsByType = (params: Record<string, string>) =>
+  api.get<RefusalTypeStat[]>('/refusals/by-type', { params })
+
+export const getRefusalsByKpi = (params: Record<string, string>) =>
+  api.get<KpiLevelStat[]>('/refusals/by-kpi-level', { params })
+
+export const getObjectionHandlingDistribution = (params: Record<string, string>) =>
+  api.get<ObjectionBucket[]>('/refusals/objection-handling-distribution', { params })
+
+export const getRefusalsProblems = (params: Record<string, string>) =>
+  api.get<ProblemStat[]>('/refusals/problems', { params })
+
+export const getRefusalsRecommendations = (params: Record<string, string>) =>
+  api.get<RecommendationStat[]>('/refusals/recommendations', { params })
+
+export const getCriteriaCompare = (params: Record<string, string>) =>
+  api.get<CriteriaCompare[]>('/refusals/criteria-compare', { params })
 
 // Dialogs
 export const getDialogs = (params: Record<string, string | number>) =>

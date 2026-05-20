@@ -5,6 +5,7 @@ import Login from './pages/Login'
 import Dashboard from './pages/Dashboard'
 import Dialogs from './pages/Dialogs'
 import DialogDetail from './pages/DialogDetail'
+import Refusals from './pages/Refusals'
 
 function PrivateRoute({ children, username }:
   { children: React.ReactNode; username: string }) {
@@ -33,6 +34,12 @@ export default function App() {
           <Route path="/dialogs" element={
             <PrivateRoute username={user || ''}>
               <Dialogs username={user!} onLogout={signOut} />
+            </PrivateRoute>
+          } />
+
+          <Route path="/refusals" element={
+            <PrivateRoute username={user || ''}>
+              <Refusals username={user!} onLogout={signOut} />
             </PrivateRoute>
           } />
 
